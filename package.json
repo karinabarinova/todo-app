@@ -4,6 +4,7 @@
   "description": "Todo app with authentication",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,8 @@
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "http-errors": "^1.8.0",
-    "pug": "^3.0.2"
+    "pg": "^8.5.1",
+    "pug": "^3.0.2",
+    "sequelize": "^6.5.0"
   }
 }
