@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+    include common/header.pug
+    +head("Todo App")
+    body 
+        include common/navbar.pug
+        +navbar()
+        header.masthead
+            .container.h-100
+                .row.h-50.align-items-center
+                .col-12.text-center
+                    h1.font-weight-bold(style="color: #fff;") Lorem ipsum dolor sit amet
+                    p.lead(style="color: #fff") Repellendus ab nulla dolorum autem
+
+        section.py-5
+            .container
+                h2.font-weight-light Page Content
+                p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.
+
+        include common/footer.pug
+        +footer()

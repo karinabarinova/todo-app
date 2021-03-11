@@ -1,0 +1,17 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+  
+a {
+    color: #00B7FF;
+}
+  
+.masthead {
+    height: 70vh;
+    min-height: 500px;
+    background-image: url('https://source.unsplash.com/zNRITe8NPqY/1920x1080');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
