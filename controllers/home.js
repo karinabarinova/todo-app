@@ -32,13 +32,6 @@ exports.createTask = (req, res, next) => {
 }
 
 exports.finishTask = (req, res, next) => {
-    // models.Task.update({
-    //     done: true
-    // }, {
-    //     where: { id: req.params.id }
-    // }).then(result => {
-    //     res.redirect('/')
-    // })
     models.Task.update({
         done: true
     },{
