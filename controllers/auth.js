@@ -50,3 +50,9 @@ exports.signup = (req, res, next) => {
 exports.signup_show = (req, res, next) => {
     res.render('auth/signup', {})
 }
+
+exports.logout = (req, res, next) => {
+    req.logout()
+    req.session.destroy();
+    res.redirect('/')
+}
