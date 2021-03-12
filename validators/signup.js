@@ -20,16 +20,19 @@ exports.validateUser = (errors, req) => {
         }).then(user => {
             if (user !== null)
                 errors['email'] = 'Email is already in use. Login or reset your password'
-            return models.User.findOne({
+            if (req.body.username) {
+                return models.User.findOne({
                 where: {
                     username: req.body.username
                 }
-            }).then(user => {
-                if (user !== null)
-                    errors["username"] = 'Username is already in use. Login or reset your password'
+                }).then(user => {
+                    if (user !== null)
+                        errors["username"] = 'Username is already in use. Login or reset your password'
+                    resolve(errors)
+                })
+            } else {
                 resolve(errors)
-            })
-            
+            } 
         })
     })
 }
