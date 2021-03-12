@@ -23,7 +23,7 @@ exports.getTasks = (req, res, next) => {
 }
 
 exports.createTask = (req, res, next) => {
-    models.Task.create({
+    return models.Task.create({
         description: req.body.task,
         done: false
     }).then(task => {
@@ -32,11 +32,22 @@ exports.createTask = (req, res, next) => {
 }
 
 exports.finishTask = (req, res, next) => {
-    models.Task.update({
+    return models.Task.update({
         done: true
     },{
         where: { id: req.params.id }
     }).then(result => {
+        res.send({message: "Success"})
+    })
+}
+
+exports.deleteTask = (req, res, next) => {
+    models.Task.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(result => {
+        console.log('success')
         res.send({message: "Success"})
     })
 }

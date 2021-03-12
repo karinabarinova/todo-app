@@ -6,7 +6,8 @@ const { isAuth } = require('../middleware/isAuth')
 
 router.get('/', home.getPage);
 router.post('/add', isAuth, home.createTask);
-router.post('/delete/:id', isAuth, home.finishTask)
+router.post('/finish/:id', isAuth, home.finishTask)
+router.delete('/delete/:id', isAuth, home.deleteTask)
 router.get('/tasks', isAuth, home.getTasks);
 
 //Authentication
