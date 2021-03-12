@@ -4,18 +4,18 @@ module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('Tasks', {
             id: {
-                type: DataTypes.UUID,
+                type: Sequelize.UUID,
                 allowNull: false,
                 primaryKey: true,
-                defaultValue: DataTypes.UUIDV4
+                defaultValue: Sequelize.UUIDV4
             },
             description: {
-                type: DataTypes.STRING,
+                type: Sequelize.STRING,
                 allowNull: false,
                 defaultValue: ""
             },
             done: {
-                type: DataTypes.BOOLEAN,
+                type: Sequelize.BOOLEAN,
                 allowNull: false
             },
             createdAt: {
