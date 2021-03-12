@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+    include ../common/header.pug
+    +head("Todo App")
+    body 
+        include ../common/navbar.pug
+        +navbar()
+        .container
+            h3(style="text-align: center;").mt-5 Create task
+            form(action="/add" method="POST").mt-5
+                .input-group.mb-3
+                    input.form-control(type='text' name="task" placeholder="Buy milk..." aria-label="Recipient's username" aria-describedby='button-addon2')
+                    button#button-addon2.btn.btn-outline-secondary(type='submit') Add
+            h3(style="text-align: center;").mt-5 Planned tasks
+            ul.list-group.mt-5
+                for task in planned
+                    li.list-group-item(id=task.id)
+                        input.form-check-input.me-1(type='checkbox' value='' aria-label='...' onClick=`deleteTask('${task.id}')` )
+                        |     #{task.description}
+            h3(style="text-align: center;").mt-5 Finished tasks
+            ul.list-group.mt-5
+                for task in done
+                    li.list-group-item(id=task.id)
+                        |     #{task.description}
+        include ../common/footer.pug
+        +footer()
+        script(src='js/tasks.js')

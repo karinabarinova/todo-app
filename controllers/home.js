@@ -2,9 +2,23 @@ const models = require('../models')
 
 exports.getPage = (req, res, next) => {
     //add passing of req.user
-    return models.Task.findAll().then(tasks => {
-        console.log(tasks)
-        res.render('home', { tasks })
+    res.render('home', {})
+}
+
+exports.getTasks = (req, res, next) => {
+    return models.Task.findAll({
+        where: {
+            done: true
+        }
+    }).then(done => {
+        return models.Task.findAll({
+            where: {
+                done: false
+            }
+        }).then(planned => {
+            res.render('tasks/tasks', { done, planned })
+        })
+        
     })
 }
 
@@ -13,7 +27,7 @@ exports.createTask = (req, res, next) => {
         description: req.body.task,
         done: false
     }).then(task => {
-        res.redirect('/')
+        res.redirect('/tasks')
     })
 }
 
@@ -25,9 +39,11 @@ exports.finishTask = (req, res, next) => {
     // }).then(result => {
     //     res.redirect('/')
     // })
-    models.Task.destroy({
+    models.Task.update({
+        done: true
+    },{
         where: { id: req.params.id }
     }).then(result => {
-        res.redirect('/')
+        res.redirect('/tasks')
     })
 }
