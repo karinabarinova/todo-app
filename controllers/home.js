@@ -2,7 +2,7 @@ const models = require('../models')
 
 exports.getPage = (req, res, next) => {
     //add passing of req.user
-    res.render('home', {})
+    res.render('home', {user: req.user})
 }
 
 exports.getTasks = (req, res, next) => {
