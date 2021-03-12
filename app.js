@@ -10,21 +10,19 @@ const session = require('express-session')
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug');
 
-require('./passport-setup')(passport)
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false}))
-
-app.use('/', homeRouter)
-
-
 app.use(session({ secret: 'new secret'}))
 app.use(passport.initialize())
 app.use(passport.session())
 
+require('./passport-setup')(passport)
 
+
+app.use('/', homeRouter)
 
 app.use(function(req, res, next) {
     next(createError(404));
