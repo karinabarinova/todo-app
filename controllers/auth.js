@@ -12,6 +12,14 @@ exports.login_show = (req, res, next) => {
     res.render('auth/login', {})
 }
 
+exports.login = (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/tasks',
+        failureRedirect: '/login',
+        failureFlash: true
+    })(req, res, next)
+}
+
 const rerender_signup = (err, req, res, next) => {
     res.render('auth/signup', {errors: err})
 }
@@ -31,7 +39,7 @@ exports.signup = (req, res, next) => {
             return newUser.save().then(result => {
                 passport.authenticate('local', {
                     successRedirect: '/tasks',
-                    failureRedirect: '/signup',
+                    failureRedirect: '/',
                     failureFlash: true
                 })(req, res, next);
             })

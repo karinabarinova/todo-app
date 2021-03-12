@@ -12,6 +12,7 @@ router.get('/tasks', home.getTasks);
 router.get('/signup', auth.signup_show)
 router.post('/signup', auth.signup)
 router.get('/login', auth.login_show)
+router.post('/login', auth.login)
 
 
 module.exports = router
