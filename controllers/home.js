@@ -8,11 +8,13 @@ exports.getPage = (req, res, next) => {
 exports.getTasks = (req, res, next) => {
     return models.Task.findAll({
         where: {
+            author: req.user.dataValues.id,
             done: true
         }
     }).then(done => {
         return models.Task.findAll({
             where: {
+                author: req.user.dataValues.id,
                 done: false
             }
         }).then(planned => {
@@ -24,6 +26,7 @@ exports.getTasks = (req, res, next) => {
 
 exports.createTask = (req, res, next) => {
     return models.Task.create({
+        author: req.user.dataValues.id,
         description: req.body.task,
         done: false
     }).then(task => {

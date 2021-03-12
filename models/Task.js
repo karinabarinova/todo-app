@@ -16,11 +16,12 @@ module.exports = (sequelize, DataTypes) => {
         done: {
             type: DataTypes.BOOLEAN,
             allowNull: false
+        },
+        author: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            defaultValue: DataTypes.UUIDV4
         }
-        // author: {
-        //     type: DataTypes.UUID,
-        //     allowNull: false
-        // }
     })
     
     return Task;
