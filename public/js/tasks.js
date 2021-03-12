@@ -1,7 +1,7 @@
 function deleteTask(id) {
     $.ajax({
         url: '/delete/' + id,
-        dataType: 'text',
+        dataType: 'json',
         data: JSON.stringify({id}),
         type: 'POST',
         success: (res => {

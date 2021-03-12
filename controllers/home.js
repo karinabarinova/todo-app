@@ -37,6 +37,6 @@ exports.finishTask = (req, res, next) => {
     },{
         where: { id: req.params.id }
     }).then(result => {
-        res.redirect('/tasks')
+        res.send({message: "Success"})
     })
 }
