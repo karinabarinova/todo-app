@@ -16,7 +16,7 @@ exports.getTasks = (req, res, next) => {
                 done: false
             }
         }).then(planned => {
-            res.render('tasks/tasks', { done, planned })
+            res.render('tasks/tasks', { done, planned, user: req.user })
         })
         
     })

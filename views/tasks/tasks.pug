@@ -4,7 +4,7 @@ html(lang='en')
     +head("Todo App")
     body 
         include ../common/navbar.pug
-        +navbar()
+        +navbar(user)
         .container
             h3(style="text-align: center;").mt-5 Create task
             form(action="/add" method="POST").mt-5

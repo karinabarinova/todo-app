@@ -13,6 +13,8 @@ mixin navbar(user)
                 if user 
                     ul.navbar-nav.mr-auto
                         li.nav-item
+                            a.nav-link(href="/tasks") Tasks
+                        li.nav-item
                             a.nav-link(href="/logout") Logout
                 else 
                     ul.navbar-nav.mr-auto
