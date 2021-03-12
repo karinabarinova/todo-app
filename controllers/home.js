@@ -1,7 +1,6 @@
 const models = require('../models')
 
 exports.getPage = (req, res, next) => {
-    //add passing of req.user
     res.render('home', {user: req.user})
 }
 
@@ -50,7 +49,6 @@ exports.deleteTask = (req, res, next) => {
             id: req.params.id
         }
     }).then(result => {
-        console.log('success')
         res.send({message: "Success"})
     })
 }

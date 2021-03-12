@@ -14,12 +14,11 @@ html(lang='en')
             h3(style="text-align: center;").mt-5 Planned tasks
             .list-group
                 for task in planned
-                    label.list-group-item(id=task.id)
+                    label.list-group-item.list-group-item-action.list-group-item-primary(id=task.id)
                         input.form-check-input.me-1(type='checkbox' value='' onClick=`deleteTask('${task.id}')`)
                         |     #{task.description}
             h3(style="text-align: center;").mt-5 Finished tasks
             ul.list-group.mt-5
-            
                 for task in done
                     li.list-group-item.list-group-item-action.list-group-item-light(id=task.id onClick=`removeTask('${task.id}')`)
                         |     #{task.description}
